@@ -11,6 +11,7 @@
   "description": "",
   "dependencies": {
     "express": "^4.21.0",
+    "lodash": "^4.17.21",
     "shortid": "^2.2.16"
   },
   "devDependencies": {

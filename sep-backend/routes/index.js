@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-const controller = require('../controllers/main.controller');
-
+const eventRequestsController = require('../controllers/eventrequests.controller');
+const staffController = require('../controllers/staff.controller')
 router.get('/', function(req, res, next) {
     res.status(200).json({
       data:{
@@ -11,6 +11,7 @@ router.get('/', function(req, res, next) {
     })
 });
 
-router.post('/eventrequests', controller.postEventRequest);
+router.post('/eventrequests', eventRequestsController.postEventRequest);
+router.post('/login', staffController.loginUser);
 
 module.exports = router;

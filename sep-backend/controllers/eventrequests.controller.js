@@ -19,7 +19,6 @@ const controller = {
             }
         }
         eventRequests.push(eventRequest)
-        console.log(eventRequests)
         return res.status(200).json(eventRequest)
     }
 }

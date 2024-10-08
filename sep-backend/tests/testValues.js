@@ -30,4 +30,9 @@ testValues.postEventRequest = {
         role: 'staff role'
   }
 
+testValues.loginUser = {
+    email: "firstlast@mail.com",
+    password: "testpassword"
+}
+
 module.exports = testValues;
