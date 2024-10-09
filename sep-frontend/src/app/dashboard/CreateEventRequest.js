@@ -21,7 +21,7 @@ export default function CreateEventRequest(props) {
                 {clients.length > 0 &&
                     <div className="form-group"> 
                     <label htmlFor="eventType">Client</label>       
-                    <select className="form-select" aria-label="Select client" id="clientInput">
+                    <select name="clientId" className="form-select" aria-label="Select client" id="clientInput">
                         {clients.map((client) => {
                             return(
                             <option key={client.id} value={client.id}>

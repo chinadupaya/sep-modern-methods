@@ -3,6 +3,7 @@ let eventRequests = [];
 
 const controller = {
     postEventRequest: (req, res) => {
+        console.log("req.body", req.body)
         let eventRequest = {
             id: shortid.generate(),
             clientId: req.body.clientId,
@@ -14,8 +15,9 @@ const controller = {
             expectedBudget: req.body.expectedBudget,
             preferences: req.body.preferences,
             updatedBy: {
-                name: req.body.name,
-                role: req.body.role,
+                id: req.body.userId,
+                name: req.body.userName,
+                role: req.body.userRole,
             }
         }
         eventRequests.push(eventRequest)
