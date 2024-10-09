@@ -8,5 +8,21 @@ const staff = [
     }
 ]
 
+const clients = [
+    {
+        id: 1,
+        name: "KTH",
+        eventHistory: [
+            1, 2
+        ]
+    },
+    {
+        id: 2,
+        name: "Jollibee",
+        eventHistory: [
+            3
+        ]
+    },
+]
 
-module.exports = staff
+module.exports = {staff: staff, clients: clients}

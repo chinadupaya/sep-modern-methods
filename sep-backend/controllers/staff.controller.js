@@ -1,12 +1,12 @@
 const shortid = require('shortid');
 var _ = require('lodash');
-let staff = require('../database/testDB');
+const testDB = require('../database/testDB');
 
+const staff = testDB.staff;
 
 const controller = {
     loginUser: (req, res) => {
         data = req.body
-        console.log("received data " + JSON.stringify(data));
         // find user
         var user = _.find(staff, {email: data.email})
         if (!user) {
