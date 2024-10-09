@@ -31,8 +31,13 @@ testValues.postEventRequest = {
   }
 
 testValues.loginUser = {
-    email: "firstlast@mail.com",
-    password: "testpassword"
+    email: "sarah@sep.se",
+    password: "sarah123",
+}
+
+testValues.loginUserNotFoundError = {
+    email: "test@sep.se",
+    password: "sarah123",
 }
 
 module.exports = testValues;
