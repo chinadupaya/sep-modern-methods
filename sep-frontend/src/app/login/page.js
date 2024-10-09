@@ -1,5 +1,5 @@
 
-import { login } from '@/app/actions/login'
+import { login } from '../actions/login'
 import { LoginButton } from './LoginButton'
 
 export default async function LoginComponent(props) {

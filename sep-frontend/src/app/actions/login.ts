@@ -20,7 +20,12 @@ if (result.error) {
     return { error: result.error, status: result.error.status };
     // throw new Error('failed to login')
 }
-cookies().delete('user'),
-cookies().set('user', JSON.stringify(result))
-redirect('/')
+
+if (cookies().get('user')){
+    cookies().delete('user')
+}
+if(result != null) {
+    cookies().set('user', JSON.stringify(result))
+}
+redirect('/dashboard')
 }

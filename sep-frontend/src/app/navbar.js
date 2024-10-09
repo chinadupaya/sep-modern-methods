@@ -1,17 +1,23 @@
 import { cookies } from 'next/headers';
 import Link from 'next/link';
+import { logout } from './actions/logout';
 
 const getUser = () => {
     const token = cookies().get('user');
-    const user = JSON.parse(token.value);
-    if(user) {
-        return user
+    
+    console.log("token " +JSON.stringify(token));
+    if(token) {
+        let user = JSON.parse(token.value);
+        if(user) {
+            return user
+        }
     }
-    return false;
+    return null;
 };
 
-function NavItems(user) {
-    if(!user) {
+function NavItems(input) {
+    console.log("user " +JSON.stringify(input));
+    if(!input || input == null || input.user==null) {
         return(
             <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="/login">
@@ -21,17 +27,14 @@ function NavItems(user) {
         )
     }
     return(
-        <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="/">
-            Logout
-            </a>
-        </li>
+        <form className="container-fluid justify-content-start" action={logout}>
+            <button className="btn btn-outline-danger me-2" type="submit">Logout</button>
+        </form>
     )
 }
 
 export default function Navbar() {
     const user = getUser();
-
     return(
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
@@ -56,7 +59,7 @@ export default function Navbar() {
                   Home
                 </a>
               </li>
-            <NavItems user={user} />
+            {<NavItems user={user} />}
             </ul>
           </div>
         </div>
