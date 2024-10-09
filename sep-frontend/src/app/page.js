@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import LoginComponent from "@/app/components/LoginComponent";
 
 export default function Home() {
   return (
@@ -37,7 +38,7 @@ export default function Home() {
           </div>
         </div>
       </nav>
-      
+      <LoginComponent />
     </div>
   );
 }

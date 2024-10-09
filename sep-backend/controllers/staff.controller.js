@@ -6,11 +6,13 @@ let staff = require('../database/testDB');
 const controller = {
     loginUser: (req, res) => {
         data = req.body
+        console.log("received data " + JSON.stringify(data));
         // find user
         var user = _.find(staff, {email: data.email})
         if (!user) {
             return res.status(404).json({
                 error: {
+                    status:404,
                     message: "User not found"
                 }
             });
@@ -19,6 +21,7 @@ const controller = {
         if (data.password != user.password) {
             return res.status(401).json({
                 error: {
+                    status:401,
                     message: "Invalid password"
                 }
             })
