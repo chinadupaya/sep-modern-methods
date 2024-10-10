@@ -1,6 +1,7 @@
 import { cookies } from 'next/headers';
 import Link from 'next/link';
 import CreateEventRequest from './CreateEventRequest';
+import EventRequests from './EventRequest';
 
 const getUser = () => {
   const token = cookies().get('user');
@@ -15,7 +16,17 @@ const getUser = () => {
 const checkUserRole = (user) => {
     if(user.role == 'customerservice') {
         return(
-            <CreateEventRequest />
+            <div>
+                Create Event Request
+                <CreateEventRequest />
+            </div>
+        )
+    } else if(user.role == 'seniorcsmanager') {
+        return(
+            <div>
+                <h2>Event Requests</h2>
+                <EventRequests />
+            </div>
         )
     } 
     return (<div></div>)
@@ -37,7 +48,7 @@ const Dashboard = () => {
   return (
     <>
       <h1>You need to create an account first!</h1>
-      <Link href='/'>Create your account</Link>
+      <Link href='/login'>Create your account</Link>
     </>
   );
 };

@@ -12,8 +12,9 @@ export async function createEventRequest(formData) {
         eventType: formData.get('eventType'),
         startDate: formData.get('startDate'),
         endDate: formData.get('endDate'),
-        numberAttendees: formData.get('numberAttendees'),
-        preferences: formData.get('preferences'),
+        expectedAttendees: formData.get('numberAttendees'),
+        preferences: formData.getAll('preferences'),
+        expectedBudget: formData.get('expectedBudget'),
         userName: user.name,
         userId: user.id,
         userRole: user.role

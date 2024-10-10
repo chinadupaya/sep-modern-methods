@@ -12,6 +12,7 @@ router.get('/', function(req, res, next) {
     })
 });
 
+router.get('/eventrequests', eventRequestsController.getEventRequests);
 router.post('/eventrequests', eventRequestsController.postEventRequest);
 router.post('/login', staffController.loginUser);
 router.get('/clients', clientController.getClients);

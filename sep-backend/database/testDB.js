@@ -5,7 +5,14 @@ const staff = [
         email: "sarah@sep.se",
         password: "sarah123",
         role: "customerservice"
-    }
+    },
+    {
+        id: 2,
+        name: "Janet",
+        email: "janet@sep.se",
+        password: "janet123",
+        role: "seniorcsmanager"
+    },
 ]
 
 const clients = [
@@ -25,4 +32,5 @@ const clients = [
     },
 ]
 
-module.exports = {staff: staff, clients: clients}
+const eventRequests = [];
+module.exports = {staff: staff, clients: clients, eventRequests: eventRequests}

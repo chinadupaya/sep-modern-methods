@@ -26,8 +26,9 @@ testValues.postEventRequest = {
         expectedAttendees: 50,
         expectedBudget: 50000,
         preferences: ["Decorations", "Parties", "Photos"],
-        name: 'staff name',
-        role: 'staff role'
+        userId: 'testid',
+        userName: 'staff name',
+        userRole: 'staff role'
   }
 
 testValues.loginUser = {

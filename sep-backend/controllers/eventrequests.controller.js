@@ -1,16 +1,24 @@
 const shortid = require('shortid');
-let eventRequests = [];
+const testDB = require('../database/testDB');
+
+let eventRequests = testDB.eventRequests;
 
 const controller = {
+    getEventRequests: (req, res) => {
+        return res.status(200).json({
+            data: {
+                eventRequests: eventRequests
+            }
+        })
+    },
     postEventRequest: (req, res) => {
-        console.log("req.body", req.body)
         let eventRequest = {
             id: shortid.generate(),
             clientId: req.body.clientId,
             clientName: req.body.clientName,
             eventType: req.body.eventType,
-            fromDate: req.body.fromDate,
-            toDate: req.body.toDate,
+            startDate: req.body.startDate,
+            endDate: req.body.endDate,
             expectedAttendees: req.body.expectedAttendees,
             expectedBudget: req.body.expectedBudget,
             preferences: req.body.preferences,
@@ -18,8 +26,10 @@ const controller = {
                 id: req.body.userId,
                 name: req.body.userName,
                 role: req.body.userRole,
-            }
+            },
+            status: 'created'
         }
+        console.log("eventRequest", eventRequest);
         eventRequests.push(eventRequest)
         return res.status(200).json(eventRequest)
     }
