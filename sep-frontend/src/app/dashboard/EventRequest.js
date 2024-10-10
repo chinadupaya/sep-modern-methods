@@ -1,20 +1,6 @@
 "use client";
 import { useState, useEffect } from "react"
 
-const EventRequest = (eventRequest) => {
-    console.log("eventRequest", eventRequest);
-    return(
-        <div className="card" style="width: 18rem;">
-            <div className="card-body">
-                <h5 className="card-title">{eventRequest.eventType}</h5>
-                <h6 className="card-subtitle mb-2 text-muted">{eventrequests.preferences}</h6>
-                <a href="#" className="card-link">Accept</a>
-                <a href="#" className="card-link">Reject</a>
-            </div>
-        </div>
-    )
-}
-
 export default function CreateEventRequest(props) {
     const [eventRequests, setEventRequests] = useState([])
     const [ready, setReady] = useState(false);

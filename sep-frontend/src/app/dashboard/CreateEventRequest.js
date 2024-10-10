@@ -62,7 +62,6 @@ export default function CreateEventRequest(props) {
                         name="numberAttendees" />
                     </div>
                 </div>
-                {/* TO DO: Make checkboxes */}
                 <div className="row">
                     <div className="col">
                     <label htmlFor="preferencesInput">Preferences</label>

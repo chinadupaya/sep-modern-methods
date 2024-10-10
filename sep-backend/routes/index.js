@@ -14,6 +14,9 @@ router.get('/', function(req, res, next) {
 
 router.get('/eventrequests', eventRequestsController.getEventRequests);
 router.post('/eventrequests', eventRequestsController.postEventRequest);
+router.put('/eventrequests/:eventRequestId',eventRequestsController.putEventRequest);
+
+
 router.post('/login', staffController.loginUser);
 router.get('/clients', clientController.getClients);
 
