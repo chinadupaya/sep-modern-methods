@@ -29,6 +29,14 @@ const checkUserRole = (user) => {
             </div>
         )
     } 
+    else if(user.role == 'financialmanager') {
+        return(
+            <div>
+                <h2>Event Requests</h2>
+                <EventRequests user={user} />
+            </div>
+        )
+    } 
     return (<div></div>)
 }
 

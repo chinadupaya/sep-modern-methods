@@ -1,9 +1,19 @@
 const serverApp = require('../app.js');
+
 const testVal = require('./testValues.js');
 const request = require('supertest');
 const assert = require('assert');
 const sandbox = require("sinon").createSandbox();
 const _ = require('lodash')
+
+const chai = require('chai');
+const expect = chai.expect;
+// const chaiAsPromised = require('chai-as-promised')
+// chai.use(chaiAsPromised);
+const sinon = require('sinon');
+const sinonChai = require('sinon-chai');
+chai.use(sinonChai);
+
 describe('Test /eventrequest', () => {
     let eventRequests;
     let putEventRequest;
@@ -22,6 +32,7 @@ describe('Test /eventrequest', () => {
         postEventRequest = testVal.postEventRequest
         putEventRequest = testVal.putEventRequest;
         sampleStub = sandbox.stub(_, 'find').resolves(sampleEventRequestVal);
+        sampleStub = sandbox.stub(_, 'filter').resolves(eventRequests);
     });
     afterEach(function () {
         // completely restore all fakes created through the sandbox
@@ -52,6 +63,14 @@ describe('Test /eventrequest', () => {
             .expect(200)
             .end(function(err, res) {
                 if (err) throw err;
+                done()
+              });
+        })
+        it('should filter', function (done) {
+            request(serverApp).get('/eventrequests?status=accept-seniorcsmanager')
+            .set('Content-Type', 'application/json')
+            .expect(200)
+            .end(function(err, res) {
                 done()
               });
         })

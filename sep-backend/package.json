@@ -12,14 +12,15 @@
   "dependencies": {
     "express": "^4.21.0",
     "lodash": "^4.17.21",
+    "node-fetch": "^2.6.1",
     "rewire": "^7.0.0",
     "shortid": "^2.2.16",
-    "sinon": "^19.0.2",
-    "sinon-chai": "^4.0.0"
+    "sinon": "^19.0.2"
   },
   "devDependencies": {
-    "chai": "^5.1.1",
+    "chai": "^4.2.0",
     "mocha": "^10.7.3",
+    "sinon-chai": "^3.7.0",
     "supertest": "^7.0.0"
   }
 }

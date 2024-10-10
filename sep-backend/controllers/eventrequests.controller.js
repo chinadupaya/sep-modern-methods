@@ -6,11 +6,23 @@ let eventRequests = testDB.eventRequests;
 
 const controller = {
     getEventRequests: (req, res) => {
-        return res.status(200).json({
-            data: {
-                eventRequests: eventRequests
-            }
-        })
+        var status = req.query.status;
+        if (status == '' || status == null || !status){
+            return res.status(200).json({
+                data: {
+                    eventRequests: eventRequests
+                }
+            });
+        }else if(status == 'accept-seniorcsmanager') {
+            let filteredEventRequests = _.filter(eventRequests, (x) => {
+                return x.status =='accept-seniorcsmanager'
+            });
+            return res.status(200).json({
+                data: {
+                    eventRequests: filteredEventRequests
+                }
+            });
+        }
     },
     postEventRequest: (req, res) => {
         let eventRequest = {
