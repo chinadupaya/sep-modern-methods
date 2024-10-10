@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react"
-import { useRouter } from 'next/navigation'
 import FinancialManagerForm from "./FinancialManagerForm";
 // import { putEventRequest } from "../actions/putEventRequest";
 
@@ -23,7 +22,6 @@ const putEventRequest = async(status, user, eventRequestId) => {
 }
 
 export default function EventRequests(props) {
-    const router = useRouter()
     const [eventRequests, setEventRequests] = useState([])
     const [ready, setReady] = useState(false);
     useEffect(() => {
@@ -31,7 +29,10 @@ export default function EventRequests(props) {
         let fetchString = 'http://localhost:3000/eventrequests'
         if(user.role == 'financialmanager') {
             fetchString += '?status=accept-seniorcsmanager'
+        } else if (user.role=='adminmanager') {
+            fetchString += '?status=comments-financialmanager'
         }
+        console.log("fetchString ", fetchString);
         fetch(fetchString)
           .then((res) => res.json())
           .then((res) => {
@@ -49,7 +50,7 @@ export default function EventRequests(props) {
                 {eventRequests.map((x) => {
                         return(
                         <div key={x.id} className="card col col-xl-6">
-                            <div class="card-header">
+                            <div className="card-header">
                                 <h6 className="card-subtitle mb-2 text-muted">Client Id</h6>
                             </div>
                             <div className="card-body">
@@ -74,6 +75,15 @@ export default function EventRequests(props) {
                                     <div className="col">
                                         End Date: {new Date(x.endDate).toDateString()}
                                     </div>
+                                    <div className="col-12">
+                                        Expected Budget: SEK {x.expectedBudget}
+                                    </div>
+                                    <div className="col-12">
+                                        Comments: {!x.comments ? 'None' : x.comments}
+                                    </div>
+                                    <div className="col-12">
+                                        Discount: {!x.discount ? 'None' : x.discount+'%'}
+                                    </div>
                                 </div>
                                 <p className="card-text text-primary">Status: {x.status}</p>
                             </div>
@@ -81,7 +91,7 @@ export default function EventRequests(props) {
                                 <p>Updated by: {x.updatedBy.name} - {x.updatedBy.role}</p>
                             </div>
                             {/* for senior cs manager */}
-                            {x.status == 'created' &&
+                            {(x.status == 'created' || x.status =='comments-financialmanager') &&
                                 <div className="card-body"> 
                                 <button type="button" class="btn btn-success" style={{marginRight: 1 + 'rem'}} onClick={() => {
                                     putEventRequest('accept', props.user, x.id);
@@ -94,7 +104,7 @@ export default function EventRequests(props) {
                                 </div>
                             }
                             {/* for financial manager */}
-                            {x.status == 'accept-seniorcsmanager' &&
+                            {x.status == 'accept-seniorcsmanager' && props.user.role =='financialmanager' && 
         
                                 <FinancialManagerForm eventRequest={x} user={props.user}/>
                             }

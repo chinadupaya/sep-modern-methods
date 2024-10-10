@@ -13,9 +13,9 @@ const controller = {
                     eventRequests: eventRequests
                 }
             });
-        }else if(status == 'accept-seniorcsmanager') {
+        }else if (status){
             let filteredEventRequests = _.filter(eventRequests, (x) => {
-                return x.status =='accept-seniorcsmanager'
+                return x.status == status
             });
             return res.status(200).json({
                 data: {

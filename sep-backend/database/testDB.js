@@ -14,11 +14,18 @@ const staff = [
         role: "seniorcsmanager"
     },
     {
-        id: 2,
+        id: 3,
         name: "Alice",
         email: "alice@sep.se",
         password: "alice123",
         role: "financialmanager"
+    },
+    {
+        id: 4,
+        name: "Mike",
+        email: "mike@sep.se",
+        password: "mike123",
+        role: "adminmanager"
     },
 ]
 

@@ -21,7 +21,7 @@ const checkUserRole = (user) => {
                 <CreateEventRequest />
             </div>
         )
-    } else if(user.role == 'seniorcsmanager') {
+    } else if(user.role == 'seniorcsmanager' || user.role=='adminmanager') {
         return(
             <div>
                 <h2>Event Requests</h2>
