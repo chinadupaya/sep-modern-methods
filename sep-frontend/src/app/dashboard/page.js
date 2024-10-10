@@ -25,7 +25,7 @@ const checkUserRole = (user) => {
         return(
             <div>
                 <h2>Event Requests</h2>
-                <EventRequests />
+                <EventRequests user={user} />
             </div>
         )
     } 
@@ -47,8 +47,8 @@ const Dashboard = () => {
   
   return (
     <>
-      <h1>You need to create an account first!</h1>
-      <Link href='/login'>Create your account</Link>
+      <h1>You need to login first!</h1>
+      <Link href='/login'>Login Here</Link>
     </>
   );
 };

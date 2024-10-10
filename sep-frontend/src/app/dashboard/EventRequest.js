@@ -1,7 +1,28 @@
 "use client";
 import { useState, useEffect } from "react"
+import { useRouter } from 'next/navigation'
+// import { putEventRequest } from "../actions/putEventRequest";
 
-export default function CreateEventRequest(props) {
+const putEventRequest = async(status, user, eventRequestId) => {
+    const requestForm = {
+        status: status + '-' + user.role,
+        userName: user.name,
+        userId: user.id,
+        userRole: user.role
+    }
+    
+    const response = await fetch(`http://localhost:3000/eventrequests/${eventRequestId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestForm),
+    });
+    
+}
+
+export default function EventRequests(props) {
+    const router = useRouter()
     const [eventRequests, setEventRequests] = useState([])
     const [ready, setReady] = useState(false);
     useEffect(() => {
@@ -47,10 +68,19 @@ export default function CreateEventRequest(props) {
                             </div>
                             <p className="card-text text-primary">Status: {x.status}</p>
                         </div>
+                        <div className="card-body">
+                            <p>Updated by: {x.updatedBy.name} - {x.updatedBy.role}</p>
+                        </div>
                         {x.status == 'created' &&
                             <div className="card-body"> 
-                            <button type="button" class="btn btn-success" style={{marginRight: 1 + 'rem'}}>Accept</button>
-                            <button type="button" class="btn btn-danger">Reject</button>
+                            <button type="button" class="btn btn-success" style={{marginRight: 1 + 'rem'}} onClick={() => {
+                                putEventRequest('accept', props.user, x.id);
+                                router.reload();
+                            }}>Accept</button>
+                            <button type="button" class="btn btn-danger" onClick = {() =>{
+                                putEventRequest('reject', props.user, x.id);
+                                router.reload();
+                            }}>Reject</button>
                             </div>
                         }
                     </div>

@@ -52,6 +52,11 @@ const controller = {
         eventRequest.discount = req.body.discount || eventRequest.status;
         eventRequest.comments = req.body.comments || eventRequest.comments;
         eventRequest.status = req.body.status || eventRequest.status;
+        eventRequest.updatedBy = {
+            id: req.body.userId,
+            name: req.body.userName,
+            role: req.body.userRole,
+        }
         console.log("new eventrequests", eventRequests);
         return res.status(200).json({
             data: {
