@@ -21,15 +21,31 @@ const checkUserRole = (user) => {
                 <CreateEventRequest />
             </div>
         )
-    } else if(user.role == 'seniorcsmanager' || user.role=='adminmanager') {
+    } else if(user.role == 'seniorcsmanager') {
+        return(
+            <div>
+                <div>
+                    <h2>
+                        Events
+                    </h2>
+                    <a className="btn btn-primary" href="/create-event">
+                        Create Event
+                    </a>
+                </div>
+                <div>
+                    <h2>Event Requests</h2>
+                    <EventRequests user={user} />
+                </div>
+            </div>
+        )
+    } else if(user.role=='adminmanager') {
         return(
             <div>
                 <h2>Event Requests</h2>
                 <EventRequests user={user} />
             </div>
         )
-    } 
-    else if(user.role == 'financialmanager') {
+    } else if(user.role == 'financialmanager') {
         return(
             <div>
                 <h2>Event Requests</h2>

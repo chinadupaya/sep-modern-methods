@@ -91,7 +91,7 @@ export default function EventRequests(props) {
                                 <p>Updated by: {x.updatedBy.name} - {x.updatedBy.role}</p>
                             </div>
                             {/* for senior cs manager */}
-                            {(x.status == 'created' || x.status =='comments-financialmanager') &&
+                            {((x.status == 'created' && props.user.role == 'seniorcsmanager') || (x.status =='comments-financialmanager' && props.user.role=='adminmanager')) &&
                                 <div className="card-body"> 
                                 <button type="button" class="btn btn-success" style={{marginRight: 1 + 'rem'}} onClick={() => {
                                     putEventRequest('accept', props.user, x.id);

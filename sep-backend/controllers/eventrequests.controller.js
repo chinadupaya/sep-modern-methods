@@ -61,7 +61,7 @@ const controller = {
             });
         }
         // if found, update discount, comments, status, updatedBy
-        eventRequest.discount = req.body.discount || eventRequest.status;
+        eventRequest.discount = req.body.discount || eventRequest.discount;
         eventRequest.comments = req.body.comments || eventRequest.comments;
         eventRequest.status = req.body.status || eventRequest.status;
         eventRequest.updatedBy = {

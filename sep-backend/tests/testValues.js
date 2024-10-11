@@ -81,4 +81,53 @@ testValues.getClients = [
         name: "test2"
     },
 ]
+
+/* Events */
+testValues.postEvent = {
+    clientId: "testId",
+    clientName: "test client",
+    eventType: "test event",
+    description: "description about event",
+    startDate: new Date("2024-12-25"),
+    endDate: new Date("2025-01-01"),
+    expectedAttendees: 50,
+    expectedBudget: 50000,
+    decorations: 'decorations desc',
+    photos: 'photos desc',
+    posters: 'art desc',
+    food: 'food/drink desc',
+    music: 'music desc',
+    computer: 'comp desc',
+    userId: 'testid',
+    userName: 'staff name',
+    userRole: 'staff role'
+}
+
+testValues.events = [
+    {
+        id: 1,
+        clientId: "testId",
+        clientName: "test client",
+        eventType: "test client",
+        description: "description about event",
+        fromDate: new Date("2024-12-25"),
+        toDate: new Date("2025-01-01"),
+        expectedAttendees: 50,
+        expectedBudget: 50000,
+        preferences: {
+            decorations: 'decorations desc',
+            photos: 'photos desc',
+            posters: 'art desc',
+            food: 'food/drink desc',
+            music: 'music desc',
+            computer: 'comp desc',
+        },
+        updatedBy: {
+            id: 'staffId',
+            name: 'staff name',
+            role: 'test role',
+        },
+        status: 'created'
+    }
+]
 module.exports = testValues;

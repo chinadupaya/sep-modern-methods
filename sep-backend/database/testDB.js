@@ -27,6 +27,20 @@ const staff = [
         password: "mike123",
         role: "adminmanager"
     },
+    {
+        id: 4,
+        name: "Jack",
+        email: "jack@sep.se",
+        password: "jack123",
+        role: "productionmanager"
+    },
+    {
+        id: 4,
+        name: "Mike",
+        email: "mike@sep.se",
+        password: "mike123",
+        role: "adminmanager"
+    },
 ]
 
 const clients = [
@@ -46,8 +60,7 @@ const clients = [
     },
 ]
 
-const eventRequests = [
+const eventRequests = [];
 
-
-];
-module.exports = {staff: staff, clients: clients, eventRequests: eventRequests}
+const events = [];
+module.exports = {staff: staff, clients: clients, eventRequests: eventRequests, events: events}

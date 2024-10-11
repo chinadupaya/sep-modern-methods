@@ -26,5 +26,5 @@ export async function addCommentsAndDiscounts(eventRequest, formData) {
     });
     const result = await response.json();
     console.log("result ", result);
-    redirect('/dashboard')
+    redirect('/')
 }
