@@ -4,24 +4,7 @@ import { useState, useEffect } from "react"
 import { addStaffRequest } from "../actions/addStaffRequest";
 
 export default function StaffRequests(props) {
-    // const [eventRequests, setEventRequests] = useState([])
-    // const [ready, setReady] = useState(false);
     useEffect(() => {
-        // const user = props.user;
-        // let fetchString = 'http://localhost:3000/eventrequests'
-        // if(user.role == 'financialmanager') {
-        //     fetchString += '?status=accept-seniorcsmanager'
-        // } else if (user.role=='adminmanager') {
-        //     fetchString += '?status=comments-financialmanager'
-        // }
-        // console.log("fetchString ", fetchString);
-        // fetch(fetchString)
-        //   .then((res) => res.json())
-        //   .then((res) => {
-        //     console.log(JSON.stringify(res.data.eventRequests))
-        //     setEventRequests(res.data.eventRequests)
-        //     setReady(true)
-        //   })
       }, [])
 
     return(
@@ -39,10 +22,10 @@ export default function StaffRequests(props) {
             <div className="form-group col-md-4">
                 <label for="contractTypeInput">Requesting Department</label>
                 <select id="contractTypeInput" class="form-control" name='requestingDept'>
-                    <option value='fulltime' selected>Administration</option>
-                    <option value='parttime'>Production</option>
-                    <option value='parttime'>Services</option>
-                    <option value='parttime'>Financial</option>
+                    <option value='administration' selected>Administration</option>
+                    <option value='production'>Production</option>
+                    <option value='services'>Services</option>
+                    <option value='financial'>Financial</option>
                 </select>
             </div>
             <div className="row">

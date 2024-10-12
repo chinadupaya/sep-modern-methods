@@ -30,8 +30,8 @@ export default function AssignTask(props) {
             .then((res) => res.json())
             .then((res) => {
                 console.log("Events", JSON.stringify(res.data.events))
-            setEvents(res.data.events)
-            setReady(true);
+                setEvents(res.data.events)
+                setReady(true);
         });
         
       }, [])
