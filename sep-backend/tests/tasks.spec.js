@@ -47,13 +47,26 @@ describe('Test /tasks', () => {
                 });
         })
     });
-    describe('GET /events', () => {
+    describe('GET /tasks', () => {
         it('should response with OK', function (done) {
             request(serverApp).get('/tasks')
             .set('Content-Type', 'application/json')
             .expect(200)
             .end(function(err, res) {
                 expect(res.body.data).to.have.property('tasks')
+                if (err) throw err;
+                done()
+              });
+        })
+    });
+
+    describe('GET /tasks/[id]', () => {
+        it('should response with OK', function (done) {
+            request(serverApp).get('/tasks/MEBDB_NAQ')
+            .set('Content-Type', 'application/json')
+            .expect(200)
+            .end(function(err, res) {
+                expect(res.body.data).to.have.property('task')
                 if (err) throw err;
                 done()
               });
