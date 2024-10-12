@@ -48,7 +48,10 @@ const controller = {
                 name: req.body.userName,
                 role: req.body.userRole,
             },
-            status: 'created'
+            status: {
+                production: 'open',
+                services: 'open',
+            }
         }
         events.push(event)
         return res.status(200).json({

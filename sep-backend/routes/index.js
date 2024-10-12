@@ -5,6 +5,9 @@ const eventRequestsController = require('../controllers/eventrequests.controller
 const staffController = require('../controllers/staff.controller')
 const clientController = require('../controllers/clients.controller')
 const eventsController = require('../controllers/events.controller')
+const tasksController = require('../controllers/tasks.controller')
+
+
 router.get('/', function(req, res, next) {
     res.status(200).json({
       data:{
@@ -21,6 +24,7 @@ router.put('/eventrequests/:eventRequestId',eventRequestsController.putEventRequ
 router.get('/events',eventsController.getEvents);
 router.post('/events',eventsController.postEvent);
 
+router.post('/tasks',tasksController.postTask);
 
 router.post('/login', staffController.loginUser);
 router.get('/clients', clientController.getClients);

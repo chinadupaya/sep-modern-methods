@@ -129,5 +129,17 @@ testValues.events = [
         },
         status: 'created'
     }
-]
+],
+
+testValues.tasks = [];
+testValues.postTask = {
+    eventId: 'eventId',
+    eventType: 'eventType',
+    description: 'desc',
+    priority: 'prio',
+    department: 'dept',
+    userId: 'userId',
+    userName: 'userName',
+    userRole: 'userRole'
+}
 module.exports = testValues;

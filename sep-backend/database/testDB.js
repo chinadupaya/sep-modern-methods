@@ -39,7 +39,7 @@ const staff = [
         name: "Natalie",
         email: "natalie@sep.se",
         password: "natalie",
-        role: "nataliemanager"
+        role: "servicesmanager"
     },
 ]
 
