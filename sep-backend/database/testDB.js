@@ -38,8 +38,36 @@ const staff = [
         id: 6,
         name: "Natalie",
         email: "natalie@sep.se",
-        password: "natalie",
+        password: "natalie123",
         role: "servicesmanager"
+    },
+    {
+        id: 7,
+        name: "Tobias",
+        email: "tobias@sep.se",
+        password: "tobias123",
+        role: "photographer"
+    },
+    {
+        id: 8,
+        name: "Magdalena",
+        email: "magdalena@sep.se",
+        password: "magdalena123",
+        role: "photographer"
+    },
+    {
+        id: 9,
+        name: "Helen",
+        email: "helen@sep.se",
+        password: "helen123",
+        role: "chef"
+    },
+    {
+        id: 10,
+        name: "Diana",
+        email: "diana@sep.se",
+        password: "diana123",
+        role: "chef"
     },
 ]
 

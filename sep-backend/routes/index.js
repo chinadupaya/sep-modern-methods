@@ -26,7 +26,9 @@ router.post('/events',eventsController.postEvent);
 
 router.post('/tasks',tasksController.postTask);
 
+router.get('/staff', staffController.getStaff);
 router.post('/login', staffController.loginUser);
+
 router.get('/clients', clientController.getClients);
 
 module.exports = router;

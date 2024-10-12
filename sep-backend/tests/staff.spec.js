@@ -2,6 +2,15 @@ const serverApp = require('../app.js');
 const testVal = require('./testValues.js');
 const request = require('supertest');
 const assert = require('assert');
+const sandbox = require("sinon").createSandbox();
+const _ = require('lodash')
+
+const chai = require('chai');
+const expect = chai.expect;
+const sinon = require('sinon');
+const sinonChai = require('sinon-chai');
+chai.use(sinonChai);
+
 
 describe('Staff', () => {
     let loginUser;
@@ -37,5 +46,17 @@ describe('Staff', () => {
                     done()
                   });
         })
-    })
+    });
+    describe('GET /staff', () => {
+        it('should response with OK', function (done) {
+            request(serverApp).get('/staff')
+            .set('Content-Type', 'application/json')
+            .expect(200)
+            .end(function(err, res) {
+                if (err) throw err;
+                expect(res.body.data).to.have.property('staff')
+                done()
+              });
+        })
+    });
 })

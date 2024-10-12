@@ -19,7 +19,7 @@ const controller = {
             });
             return res.status(200).json({
                 data: {
-                    eventRequests: filteredEvents
+                    events: filteredEvents
                 }
             });
         }

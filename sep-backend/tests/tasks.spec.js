@@ -47,9 +47,6 @@ describe('Test /tasks', () => {
                     if (err) throw err;
                     done()
                 });
-            // assert(res.body.data.hasOwnProperty('id'));
-            // assert(res.body.data.hasOwnProperty('preferences'));
-            // assert(res.body.data.hasOwnProperty('status'));
         })
     });
     // describe('GET /events', () => {

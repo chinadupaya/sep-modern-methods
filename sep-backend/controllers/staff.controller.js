@@ -30,6 +30,29 @@ const controller = {
         return res.status(200).json(
             returnUser
         )
+    },
+    getStaff: (req, res) => {
+        let staffCopy = JSON.parse(JSON.stringify(staff))
+        var role = req.query.role;
+        staffCopy.forEach(x => {
+            delete x['password']
+        })
+        if (role == '' || role == null || !role){
+            return res.status(200).json({
+                data: {
+                    staff: staffCopy
+                }
+            });
+        }else if (role){
+            let filteredStaff = _.filter(staffCopy, (x) => {
+                return x.role == role
+            });
+            return res.status(200).json({
+                data: {
+                    staff: filteredStaff
+                }
+            });
+        }
     }
 }
 
