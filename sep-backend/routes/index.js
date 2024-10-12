@@ -26,6 +26,7 @@ router.post('/events',eventsController.postEvent);
 
 router.post('/tasks',tasksController.postTask);
 router.get('/tasks',tasksController.getTasks);
+router.put('/tasks/:taskId',tasksController.addComments);
 
 router.get('/staff', staffController.getStaff);
 router.post('/login', staffController.loginUser);

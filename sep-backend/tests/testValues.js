@@ -140,5 +140,9 @@ testValues.postTask = {
     userId: 'userId',
     userName: 'userName',
     userRole: 'userRole'
+},
+testValues.putTask = {
+    eventId: 'eventId',
+    comments: 'needs additional budget of 5000'
 }
 module.exports = testValues;

@@ -40,13 +40,32 @@ const controller = {
             comments: ''
         }
         tasks.push(task)
-        console.log("taks", tasks);
         return res.status(200).json({
             data: {
                 task: task
             }
         })
-    }
+    },
+    addComments: (req, res) => {
+        let taskId = req.params.taskId;
+        // find task
+        var task = _.find(tasks, {id: taskId})
+        if (!task) {
+            return res.status(404).json({
+                error: {
+                    status:404,
+                    message: "Task not found"
+                }
+            });
+        }
+        task.comments = req.body.comments || task.comments
+        console.log("tasks", tasks);
+        return res.status(200).json({
+            data: {
+                task: task
+            }
+        })
+    },
 }
 
 module.exports = controller;

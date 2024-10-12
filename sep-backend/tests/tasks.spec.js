@@ -15,19 +15,17 @@ chai.use(sinonChai);
 describe('Test /tasks', () => {
     let tasks;
     let postTask;
+    let putTask;
     let sampleStub;
-    let sampleEventRequestVal;
+    let sampleTaskRequestVal;
     beforeEach(() => {
-        sampleEventRequestVal = {
+        sampleTaskRequestVal = {
             id: 1,
-            updatedBy: {
-                id: 'staffId',
-                name: 'staff name',
-                role: 'test role',
-            }
         }
         tasks = testVal.tasks
         postTask = testVal.postTask;
+        putTask = testVal.putTask;
+        sampleStub = sandbox.stub(_, 'find').resolves(sampleTaskRequestVal);
     });
     afterEach(function () {
         // completely restore all fakes created through the sandbox
@@ -61,4 +59,20 @@ describe('Test /tasks', () => {
               });
         })
     });
+
+    describe('PUT /tasks', () => {
+        it('should be successful' , function (done) {
+            request(serverApp).put(`/tasks/1`)
+                .set('Content-Type', 'application/json')
+                .send(putTask)
+                .expect(function(res) {
+                    console.log("task res" ,res.body.data.task)
+                    assert(res.body.data.task.hasOwnProperty('comments'));
+                  })
+                .end(function(err, res) {
+                    if (err) throw err;
+                    done()
+                  });
+        })
+    })
 })
