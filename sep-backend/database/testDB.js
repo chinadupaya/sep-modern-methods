@@ -28,18 +28,18 @@ const staff = [
         role: "adminmanager"
     },
     {
-        id: 4,
+        id: 5,
         name: "Jack",
         email: "jack@sep.se",
         password: "jack123",
         role: "productionmanager"
     },
     {
-        id: 4,
-        name: "Mike",
-        email: "mike@sep.se",
-        password: "mike123",
-        role: "adminmanager"
+        id: 6,
+        name: "Natalie",
+        email: "natalie@sep.se",
+        password: "natalie",
+        role: "nataliemanager"
     },
 ]
 
@@ -62,5 +62,36 @@ const clients = [
 
 const eventRequests = [];
 
-const events = [];
-module.exports = {staff: staff, clients: clients, eventRequests: eventRequests, events: events}
+const events = [
+    {
+        id: 1,
+        clientId: "testId",
+        clientName: "test client",
+        eventType: "test client",
+        description: "description about event",
+        fromDate: new Date("2024-12-25"),
+        toDate: new Date("2025-01-01"),
+        expectedAttendees: 50,
+        expectedBudget: 50000,
+        preferences: {
+            decorations: 'decorations desc',
+            photos: 'photos desc',
+            posters: 'art desc',
+            food: 'food/drink desc',
+            music: 'music desc',
+            computer: 'comp desc',
+        },
+        updatedBy: {
+            id: 2,
+            name: 'Janet',
+            role: 'test role',
+        },
+        status: 'created'
+    }
+];
+
+const tasks = []
+module.exports = {staff: staff, clients: clients, 
+    eventRequests: eventRequests, 
+    events: events,
+    tasks: tasks}

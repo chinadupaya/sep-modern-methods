@@ -5,25 +5,25 @@ var _ = require('lodash');
 let events = testDB.events;
 
 const controller = {
-    // getEventRequests: (req, res) => {
-    //     var status = req.query.status;
-    //     if (status == '' || status == null || !status){
-    //         return res.status(200).json({
-    //             data: {
-    //                 eventRequests: eventRequests
-    //             }
-    //         });
-    //     }else if (status){
-    //         let filteredEventRequests = _.filter(eventRequests, (x) => {
-    //             return x.status == status
-    //         });
-    //         return res.status(200).json({
-    //             data: {
-    //                 eventRequests: filteredEventRequests
-    //             }
-    //         });
-    //     }
-    // },
+    getEvents: (req, res) => {
+        var status = req.query.status;
+        if (status == '' || status == null || !status){
+            return res.status(200).json({
+                data: {
+                    events: events
+                }
+            });
+        }else if (status){
+            let filteredEvents = _.filter(events, (x) => {
+                return x.status == status
+            });
+            return res.status(200).json({
+                data: {
+                    eventRequests: filteredEvents
+                }
+            });
+        }
+    },
     postEvent: (req, res) => {
         let event = {
             id: shortid.generate(),
@@ -50,7 +50,6 @@ const controller = {
             },
             status: 'created'
         }
-        console.log("event", event);
         events.push(event)
         return res.status(200).json({
             data: {

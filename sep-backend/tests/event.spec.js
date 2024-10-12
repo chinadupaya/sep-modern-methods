@@ -55,15 +55,15 @@ describe('Test /eventrequest', () => {
             // assert(res.body.data.hasOwnProperty('status'));
         })
     });
-    // describe('GET /events', () => {
-    //     it('should response with OK', function (done) {
-    //         request(serverApp).get('/events')
-    //         .set('Content-Type', 'application/json')
-    //         .expect(200)
-    //         .end(function(err, res) {
-    //             if (err) throw err;
-    //             done()
-    //           });
-    //     })
-    // });
+    describe('GET /events', () => {
+        it('should response with OK', function (done) {
+            request(serverApp).get('/events')
+            .set('Content-Type', 'application/json')
+            .expect(200)
+            .end(function(err, res) {
+                if (err) throw err;
+                done()
+              });
+        })
+    });
 })

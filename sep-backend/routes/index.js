@@ -18,6 +18,7 @@ router.post('/eventrequests', eventRequestsController.postEventRequest);
 router.put('/eventrequests/:eventRequestId',eventRequestsController.putEventRequest);
 
 
+router.get('/events',eventsController.getEvents);
 router.post('/events',eventsController.postEvent);
 
 

@@ -35,14 +35,5 @@ export async function createEvent(formData) {
         body: JSON.stringify(requestForm),
     });
     const result = await response.json();
-    console.log("result ", result);
-    // if (result.error) {
-    //     if (result.error) {
-    //         // let resultError = NextResponse.json({ error: result.error, status: result.error.status });
-    //         // return resultError
-    //         return { error: result.error, status: result.error.status };
-    //         // throw new Error('failed to login')
-    //     }
-    // }
     redirect('/dashboard')
 }
