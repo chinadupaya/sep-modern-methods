@@ -103,6 +103,12 @@ testValues.postEvent = {
     userRole: 'staff role'
 }
 
+testValues.putFinancialRequest = {
+    requestingDept: 'production',
+    addedBudget: 200,
+    reason: 'sample reason',
+}
+
 testValues.events = [
     {
         id: 1,
@@ -127,7 +133,11 @@ testValues.events = [
             name: 'staff name',
             role: 'test role',
         },
-        status: 'created'
+        status: {
+            services: 'created',
+            production: 'created',
+        },
+        financialRequests: []
     }
 ],
 

@@ -114,7 +114,12 @@ const events = [
             name: 'Janet',
             role: 'test role',
         },
-        status: 'created'
+        status: {
+            services: 'created',
+            production: 'created',
+        },
+        financialRequests: []
+
     }
 ];
 

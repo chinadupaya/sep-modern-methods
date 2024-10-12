@@ -24,6 +24,37 @@ const controller = {
             });
         }
     },
+    putEventFinancialRequest: (req, res) =>{
+        let eventId = req.params.eventId
+        console.log("eventId", eventId)
+        // find eventRequest
+        var event = _.find(events, (e) => e.id == eventId)
+        console.log("event", event)
+        if (!event) {
+            return res.status(404).json({
+                error: {
+                    status:404,
+                    message: "Resource not found"
+                }
+            });
+        }
+        // if found, update financialRequest
+        let newFinancialRequest = {
+            id: shortid.generate(),
+            requestingDept: req.body.requestingDept,
+            reason: req.body.reason,
+            addedBudget: req.body.addedBudget,
+            status: 'created'
+        }
+        event.financialRequests.push(newFinancialRequest)
+        console.log("new events", events);
+        return res.status(200).json({
+            data: {
+                event
+            }
+        })
+
+    },
     postEvent: (req, res) => {
         let event = {
             id: shortid.generate(),

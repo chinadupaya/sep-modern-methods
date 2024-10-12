@@ -12,24 +12,25 @@ const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
 chai.use(sinonChai);
 
-describe('Test /eventrequest', () => {
+describe('Test /events', () => {
     let events;
     let postEvent;
     let sampleStub;
-    let sampleEventRequestVal;
+    let sampleEventVal;
     beforeEach(() => {
-        sampleEventRequestVal = {
+        samepleEventVal = {
             id: 1,
             updatedBy: {
                 id: 'staffId',
                 name: 'staff name',
                 role: 'test role',
-            }
+            },
+            financialRequests: []
         }
         events = testVal.events
         postEvent = testVal.postEvent;
-        // putEventRequest = testVal.putEventRequest;
-        // sampleStub = sandbox.stub(_, 'find').resolves(sampleEventRequestVal);
+        putFinancialRequest = testVal.putFinancialRequest;
+        // sampleStub = sandbox.stub(_, 'find').resolves(sampleEventVal);
         // sampleStub = sandbox.stub(_, 'filter').resolves(eventRequests);
     });
     afterEach(function () {
@@ -46,13 +47,26 @@ describe('Test /eventrequest', () => {
                 .end(function(err, res) {
                     expect(res.body.data).to.have.property('event')
                     expect(res.body.data.event).to.have.property('id')
-                    expect(res.body.data.event).to.have.property('preferences')
                     if (err) throw err;
                     done()
                 });
-            // assert(res.body.data.hasOwnProperty('id'));
-            // assert(res.body.data.hasOwnProperty('preferences'));
-            // assert(res.body.data.hasOwnProperty('status'));
+        })
+    });
+    describe('PUT /events/[eventId]/financialrequests', () =>{
+        it('should respond with OK' , function (done) {
+            request(serverApp).put('/events/1/financialrequests')
+                .set('Content-Type', 'application/json')
+                .send(putFinancialRequest)
+                .expect(200)
+                .end(function(err, res) {
+                    console.log("financial request", res.body.data.event.financialRequests[0])
+                    expect(res.body.data).to.have.property('event')
+                    expect(res.body.data.event).to.have.property('id')
+                    expect(res.body.data.event).to.have.property('financialRequests')
+                    expect(res.body.data.event.financialRequests[0]).to.have.property('status')
+                    if (err) throw err;
+                    done()
+                });
         })
     });
     describe('GET /events', () => {
