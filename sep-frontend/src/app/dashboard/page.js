@@ -26,6 +26,9 @@ const checkUserRole = (user) => {
     } else if(user.role == 'seniorcsmanager') {
         return(
             <div>
+                <a className="btn btn-primary" href="/staffrequest">
+                    Request Additional Staff
+                </a>
                 <div>
                     <h2>
                         Events
@@ -43,6 +46,9 @@ const checkUserRole = (user) => {
     } else if(user.role=='adminmanager') {
         return(
             <div>
+                <a className="btn btn-primary" href="/staffrequest">
+                    Request Additional Staff
+                </a>
                 <h2>Event Requests</h2>
                 <EventRequests user={user} />
             </div>
@@ -50,6 +56,9 @@ const checkUserRole = (user) => {
     } else if(user.role == 'financialmanager') {
         return(
             <div>
+                <a className="btn btn-primary" href="/staffrequest">
+                    Request Additional Staff
+                </a>
                 <h2>Event Requests</h2>
                 <EventRequests user={user} />
             </div>
@@ -57,6 +66,9 @@ const checkUserRole = (user) => {
     } else if(user.role == 'productionmanager' || user.role=='servicesmanager') {
         return(
             <div>
+                <a className="btn btn-primary" href="/staffrequest">
+                    Request Additional Staff
+                </a>
                 <h2>Assign Tasks</h2>
                 <AssignTask user={user} />
             </div>
