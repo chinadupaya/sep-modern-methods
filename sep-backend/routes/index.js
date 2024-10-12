@@ -6,6 +6,7 @@ const staffController = require('../controllers/staff.controller')
 const clientController = require('../controllers/clients.controller')
 const eventsController = require('../controllers/events.controller')
 const tasksController = require('../controllers/tasks.controller')
+const staffRequestsController = require('../controllers/staffrequests.controller')
 
 
 router.get('/', function(req, res, next) {
@@ -20,6 +21,7 @@ router.get('/eventrequests', eventRequestsController.getEventRequests);
 router.post('/eventrequests', eventRequestsController.postEventRequest);
 router.put('/eventrequests/:eventRequestId',eventRequestsController.putEventRequest);
 
+router.post('/staffrequests', staffRequestsController.postStaffRequest)
 
 router.get('/events',eventsController.getEvents);
 router.post('/events',eventsController.postEvent);

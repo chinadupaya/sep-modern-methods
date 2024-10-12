@@ -145,4 +145,15 @@ testValues.putTask = {
     eventId: 'eventId',
     comments: 'needs additional budget of 5000'
 }
+
+testValues.staffRequests=[];
+
+testValues.postStaffRequest = {
+    contractType: 'parttime',
+    requestingDept: 'production',
+    yearsOfExperience: 3,
+    jobTitle: 'sample job',
+    jobDescription: 'does XYZ day to day'
+}
+
 module.exports = testValues;

@@ -128,7 +128,10 @@ const tasks = [{
     assignedTo: { id: 7, name: 'Tobias', role: 'photographer' },
     comments: ''
   }]
+
+const staffRequests = [];
 module.exports = {staff: staff, clients: clients, 
     eventRequests: eventRequests, 
     events: events,
-    tasks: tasks}
+    tasks: tasks,
+    staffRequests:staffRequests}
