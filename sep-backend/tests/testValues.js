@@ -108,7 +108,7 @@ testValues.events = [
         id: 1,
         clientId: "testId",
         clientName: "test client",
-        eventType: "test client",
+        eventType: "test type",
         description: "description about event",
         fromDate: new Date("2024-12-25"),
         toDate: new Date("2025-01-01"),
@@ -137,7 +137,6 @@ testValues.postTask = {
     eventType: 'eventType',
     description: 'desc',
     priority: 'prio',
-    department: 'dept',
     userId: 'userId',
     userName: 'userName',
     userRole: 'userRole'

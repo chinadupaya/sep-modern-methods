@@ -2,6 +2,7 @@ import { cookies } from 'next/headers';
 import Link from 'next/link';
 import CreateEventRequest from './CreateEventRequest';
 import EventRequests from './EventRequest';
+import AssignTask from './AssignTask';
 
 const getUser = () => {
   const token = cookies().get('user');
@@ -50,6 +51,13 @@ const checkUserRole = (user) => {
             <div>
                 <h2>Event Requests</h2>
                 <EventRequests user={user} />
+            </div>
+        )
+    } else if(user.role == 'productionmanager' || user.role=='servicesmanager') {
+        return(
+            <div>
+                <h2>Assign Tasks</h2>
+                <AssignTask user={user} />
             </div>
         )
     } 

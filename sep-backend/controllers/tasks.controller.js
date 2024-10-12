@@ -40,6 +40,7 @@ const controller = {
             comments: ''
         }
         tasks.push(task)
+        console.log("taks", tasks);
         return res.status(200).json({
             data: {
                 task: task
