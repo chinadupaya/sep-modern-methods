@@ -15,8 +15,6 @@ export async function createTask(details, formData) {
         return s.id == formData.get('staffId')
     })
     
-    console.log("event ", event[0]);
-    console.log("staff ", staff[0]);
     const requestForm = {
         eventId: event[0].id,
         eventType: event[0].eventType,
@@ -28,7 +26,6 @@ export async function createTask(details, formData) {
         userRole: staff[0].role
     }
     
-    console.log("requestForm", requestForm);
     const response = await fetch(`http://localhost:3000/tasks`, {
         method: 'POST',
         headers: {

@@ -118,7 +118,16 @@ const events = [
     }
 ];
 
-const tasks = []
+const tasks = [{
+    id: 'MEBDB_NAQ',
+    eventId: 1,
+    eventType: 'test type',
+    description: 'nice',
+    priority: 'high',
+    department: undefined,
+    assignedTo: { id: 7, name: 'Tobias', role: 'photographer' },
+    comments: ''
+  }]
 module.exports = {staff: staff, clients: clients, 
     eventRequests: eventRequests, 
     events: events,

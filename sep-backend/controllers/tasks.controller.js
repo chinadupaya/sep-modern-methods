@@ -5,25 +5,25 @@ var _ = require('lodash');
 let tasks = testDB.tasks;
 
 const controller = {
-    // getEvents: (req, res) => {
-    //     var status = req.query.status;
-    //     if (status == '' || status == null || !status){
-    //         return res.status(200).json({
-    //             data: {
-    //                 events: events
-    //             }
-    //         });
-    //     }else if (status){
-    //         let filteredEvents = _.filter(events, (x) => {
-    //             return x.status == status
-    //         });
-    //         return res.status(200).json({
-    //             data: {
-    //                 eventRequests: filteredEvents
-    //             }
-    //         });
-    //     }
-    // },
+    getTasks: (req, res) => {
+        var staffId = req.query.staffId;
+        if (staffId == '' || staffId == null || !staffId){
+            return res.status(200).json({
+                data: {
+                    tasks: tasks
+                }
+            });
+        }else if (staffId){
+            let filteredTasks = _.filter(tasks, (x) => {
+                return x.assignedTo.id == staffId
+            });
+            return res.status(200).json({
+                data: {
+                    tasks: filteredTasks
+                }
+            });
+        }
+    },
     postTask: (req, res) => {
         let task = {
             id: shortid.generate(),

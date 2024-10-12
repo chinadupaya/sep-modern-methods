@@ -25,6 +25,7 @@ router.get('/events',eventsController.getEvents);
 router.post('/events',eventsController.postEvent);
 
 router.post('/tasks',tasksController.postTask);
+router.get('/tasks',tasksController.getTasks);
 
 router.get('/staff', staffController.getStaff);
 router.post('/login', staffController.loginUser);

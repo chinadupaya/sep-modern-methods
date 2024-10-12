@@ -49,15 +49,16 @@ describe('Test /tasks', () => {
                 });
         })
     });
-    // describe('GET /events', () => {
-    //     it('should response with OK', function (done) {
-    //         request(serverApp).get('/events')
-    //         .set('Content-Type', 'application/json')
-    //         .expect(200)
-    //         .end(function(err, res) {
-    //             if (err) throw err;
-    //             done()
-    //           });
-    //     })
-    // });
+    describe('GET /events', () => {
+        it('should response with OK', function (done) {
+            request(serverApp).get('/tasks')
+            .set('Content-Type', 'application/json')
+            .expect(200)
+            .end(function(err, res) {
+                expect(res.body.data).to.have.property('tasks')
+                if (err) throw err;
+                done()
+              });
+        })
+    });
 })
