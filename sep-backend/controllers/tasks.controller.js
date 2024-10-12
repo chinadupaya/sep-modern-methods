@@ -7,6 +7,7 @@ let tasks = testDB.tasks;
 const controller = {
     getTasks: (req, res) => {
         var staffId = req.query.staffId;
+        console.log("staffId ", staffId)
         if (staffId == '' || staffId == null || !staffId){
             return res.status(200).json({
                 data: {
@@ -17,6 +18,7 @@ const controller = {
             let filteredTasks = _.filter(tasks, (x) => {
                 return x.assignedTo.id == staffId
             });
+            console.log("filteredTasks", filteredTasks)
             return res.status(200).json({
                 data: {
                     tasks: filteredTasks

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import CreateEventRequest from './CreateEventRequest';
 import EventRequests from './EventRequest';
 import AssignTask from './AssignTask';
+import Tasks from './Tasks';
 
 const getUser = () => {
   const token = cookies().get('user');
@@ -60,7 +61,11 @@ const checkUserRole = (user) => {
                 <AssignTask user={user} />
             </div>
         )
-    } 
+    } else if (user.role== 'photographer' || user.role == 'chef') {
+        return(<div>
+            <Tasks user={user} />
+        </div>)
+    }
     return (<div></div>)
 }
 
