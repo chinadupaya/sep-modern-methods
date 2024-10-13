@@ -21,7 +21,9 @@ router.get('/eventrequests', eventRequestsController.getEventRequests);
 router.post('/eventrequests', eventRequestsController.postEventRequest);
 router.put('/eventrequests/:eventRequestId',eventRequestsController.putEventRequest);
 
+router.get('/staffrequests', staffRequestsController.getStaffRequests)
 router.post('/staffrequests', staffRequestsController.postStaffRequest)
+router.put('/staffrequests/:staffRequestId', staffRequestsController.putStaffRequest)
 
 router.get('/events',eventsController.getEvents);
 router.post('/events',eventsController.postEvent);

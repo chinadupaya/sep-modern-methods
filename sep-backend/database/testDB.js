@@ -134,7 +134,17 @@ const tasks = [{
     comments: ''
   }]
 
-const staffRequests = [];
+const staffRequests = [
+    {
+        id: 'tWwklT2GE',
+        contractType: 'fulltime',
+        requestingDept: 'production',
+        yearsOfExperience: '2',
+        jobTitle: 'Job Test',
+        jobDescription: 'Job Description',
+        status: 'created'
+      }
+];
 module.exports = {staff: staff, clients: clients, 
     eventRequests: eventRequests, 
     events: events,

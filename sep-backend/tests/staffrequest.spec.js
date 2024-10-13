@@ -16,14 +16,16 @@ describe('Test /staffrequests', () => {
     let staffRequests;
     let postStaffRequest;
     let sampleStub;
-    let sampleTaskRequestVal;
+    let sampleStaffRequestVal;
+    let putStaffRequest;
     beforeEach(() => {
-        sampleTaskRequestVal = {
+        sampleStaffRequestVal = {
             id: 1,
         }
         staffRequests = testVal.staffRequests
         postStaffRequest = testVal.postStaffRequest;
-        sampleStub = sandbox.stub(_, 'find').resolves(sampleTaskRequestVal);
+        putStaffRequest = testVal.putStaffRequest;
+        sampleStub = sandbox.stub(_, 'find').resolves(sampleStaffRequestVal);
     });
     afterEach(function () {
         // completely restore all fakes created through the sandbox
@@ -37,7 +39,31 @@ describe('Test /staffrequests', () => {
                 .send(postStaffRequest)
                 .expect(200)
                 .end(function(err, res) {
-                    console.log("staff request res", res.body.data);
+                    expect(res.body.data).to.have.property('staffRequest')
+                    expect(res.body.data.staffRequest).to.have.property('status')
+                    if (err) throw err;
+                    done()
+                });
+        })
+    });
+    describe('GET /staffrequests', () => {
+        it('should response with OK', function (done) {
+            request(serverApp).get('/staffrequests')
+            .set('Content-Type', 'application/json')
+            .expect(200)
+            .end(function(err, res) {
+                if (err) throw err;
+                done()
+              });
+        })
+    });
+    describe('PUT /staffrequests', () =>{
+        it('should respond with OK' , function (done) {
+            request(serverApp).put('/staffrequests/tWwklT2GE')
+                .set('Content-Type', 'application/json')
+                .send(putStaffRequest)
+                .expect(200)
+                .end(function(err, res) {
                     expect(res.body.data).to.have.property('staffRequest')
                     expect(res.body.data.staffRequest).to.have.property('status')
                     if (err) throw err;

@@ -166,4 +166,8 @@ testValues.postStaffRequest = {
     jobDescription: 'does XYZ day to day'
 }
 
+testValues.putStaffRequest = {
+    status: 'inprogress'
+}
+
 module.exports = testValues;
