@@ -109,6 +109,10 @@ testValues.putFinancialRequest = {
     reason: 'sample reason',
 }
 
+testValues.changeFinancialRequestStatus = {
+    status: 'finished'
+}
+
 testValues.events = [
     {
         id: 1,

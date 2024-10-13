@@ -28,6 +28,7 @@ router.put('/staffrequests/:staffRequestId', staffRequestsController.putStaffReq
 router.get('/events',eventsController.getEvents);
 router.post('/events',eventsController.postEvent);
 router.put('/events/:eventId/financialrequests',eventsController.putEventFinancialRequest);
+router.put('/events/:eventId/financialrequests/:financialRequestId',eventsController.changeFinancialRequestStatus);
 
 router.post('/tasks',tasksController.postTask);
 router.get('/tasks',tasksController.getTasks);

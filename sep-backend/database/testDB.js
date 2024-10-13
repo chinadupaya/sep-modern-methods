@@ -125,7 +125,15 @@ const events = [
             services: 'created',
             production: 'created',
         },
-        financialRequests: []
+        financialRequests: [
+            {
+                id: "yJuiQXDx3",
+                requestingDept: "production",
+                reason: "sample reason",
+                addedBudget: 200,
+                status: "created"
+            }
+        ]
 
     }
 ];

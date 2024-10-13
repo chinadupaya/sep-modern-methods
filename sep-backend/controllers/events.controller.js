@@ -1,6 +1,7 @@
 const shortid = require('shortid');
 const testDB = require('../database/testDB');
 var _ = require('lodash');
+const { changeFinancialRequestStatus } = require('../tests/testValues');
 
 let events = testDB.events;
 
@@ -47,7 +48,6 @@ const controller = {
             status: 'created'
         }
         event.financialRequests.push(newFinancialRequest)
-        console.log("new events", events);
         return res.status(200).json({
             data: {
                 event
@@ -85,6 +85,39 @@ const controller = {
             }
         }
         events.push(event)
+        return res.status(200).json({
+            data: {
+                event: event
+            }
+        })
+    },
+    changeFinancialRequestStatus: (req, res) => {
+        let eventId = req.params.eventId;
+        let financialRequestId = req.params.financialRequestId
+        // find eventRequest
+        var event = _.find(events, (e) => e.id == eventId)
+        if (!event) {
+            return res.status(404).json({
+                error: {
+                    status:404,
+                    message: "Event not found"
+                }
+            });
+        }
+
+        // find financialRequest 
+    var financialRequest = _.find(event.financialRequests, (f) => f.id == financialRequestId)
+        if (!financialRequest) {
+            return res.status(404).json({
+                error: {
+                    status:404,
+                    message: "financial request not found"
+                }
+            });
+        }
+        // if found, update financialRequest
+        financialRequest.status = req.body.status || financialRequest.status
+        console.log("new events", events);
         return res.status(200).json({
             data: {
                 event: event
