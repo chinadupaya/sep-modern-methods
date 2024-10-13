@@ -29,7 +29,6 @@ const checkUserRole = (user) => {
         return (
             <div>
                 <div className="row">
-
                     <a className="btn btn-primary col-4 mx-1" href="/staffrequest">
                         Request Additional Staff
                     </a>
@@ -79,6 +78,8 @@ const checkUserRole = (user) => {
                         Request Additional Budget
                     </a>
                 </div>
+                <h2>Events</h2>
+                <Events user={user} />
                 <h2>Event Requests</h2>
                 <EventRequests user={user} />
             </div>

@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react"
-import FinancialManagerForm from "./FinancialManagerForm";
+import FinancialRequests from "./FinancialRequests";
 // import { putEventRequest } from "../actions/putEventRequest";
 
 const putEventRequest = async(status, user, eventRequestId) => {
@@ -24,8 +24,8 @@ const putEventRequest = async(status, user, eventRequestId) => {
 export default function Events(props) {
     const [events, setEvents] = useState([])
     const [ready, setReady] = useState(false);
+    const user = props.user;
     useEffect(() => {
-        const user = props.user;
         let fetchString = 'http://localhost:3000/events'
         fetch(fetchString)
           .then((res) => res.json())
@@ -46,23 +46,35 @@ export default function Events(props) {
                     <div key={x.id} className="card col col-xl-6">
                     <div className="card-header">
                         <h6 className="card-subtitle mb-2 text-muted">Event Details</h6>
-                        <div className="card-body">
-                            <h5 className="card-title">Event Type: {x.eventType}</h5>
-                            <h6 className="card-subtitle mb-2 text-muted">Client Id: {x.clientId}</h6>
-                            <h6 className="card-subtitle mb-2 text-muted">Description: {x.description}</h6>
-                            <h6>Preferences</h6>
-                            <p>
-                               Decorations: {x.preferences.decorations} <br />
-                               Music: {x.preferences.music} <br />
-                               Photos: {x.preferences.photos} <br />
-                               Posters: {x.preferences.posters} <br />
-                               Food/Drink: {x.preferences.food} <br />
-                               Computer-related: {x.preferences.computer} <br />
-                                
-                            </p>
-                            <h5>Expected Attendees: {x.expectedAttendees}</h5>
-                            <h5>Expected Budget: {x.expectedBudget} SEK</h5>
-                        </div>
+                    </div>
+                    <div className="card-body">
+                        <h5 className="card-title">Event Type: {x.eventType}</h5>
+                        <h6 className="card-subtitle mb-2 text-muted">Client Id: {x.clientId}</h6>
+                        <h6 className="card-subtitle mb-2 text-muted">Description: {x.description}</h6>
+                        <h6>Preferences</h6>
+                        <ul>
+                            <li>
+                                Decorations: {x.preferences.decorations} <br />
+                            </li>
+                            <li>
+                            Music: {x.preferences.music} <br />
+                            </li>
+                            <li>
+                            Photos: {x.preferences.photos} <br />
+                            </li>
+                            <li>
+                            Posters: {x.preferences.posters} <br />
+                            </li>
+                            <li>
+                            Food/Drink: {x.preferences.food} <br />
+                            </li>
+                            <li>
+                            Computer-related: {x.preferences.computer} <br />
+                            </li>  
+                        </ul>
+                        <h5>Expected Attendees: {x.expectedAttendees}</h5>
+                        <h5>Expected Budget: {x.expectedBudget} SEK</h5>
+                        <FinancialRequests financialRequests={x.financialRequests} eventId={x.id}/>
                     </div>
                     </div>
                     )

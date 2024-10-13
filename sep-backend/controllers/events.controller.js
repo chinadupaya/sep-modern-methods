@@ -105,7 +105,7 @@ const controller = {
             });
         }
 
-        // find financialRequest 
+    // find financialRequest 
     var financialRequest = _.find(event.financialRequests, (f) => f.id == financialRequestId)
         if (!financialRequest) {
             return res.status(404).json({
@@ -116,7 +116,10 @@ const controller = {
             });
         }
         // if found, update financialRequest
-        financialRequest.status = req.body.status || financialRequest.status
+        financialRequest.status = req.body.status || financialRequest.status;
+        if (req.body.status == 'approved') {
+            event.expectedBudget += financialRequest.addedBudget
+        }
         console.log("new events", events);
         return res.status(200).json({
             data: {
