@@ -5,6 +5,7 @@ import EventRequests from './EventRequest';
 import AssignTask from './AssignTask';
 import Tasks from './Tasks';
 import Events from './Events';
+import ListStaffRequests from './ListStaffRequests';
 
 const getUser = () => {
     const token = cookies().get('user');
@@ -104,6 +105,12 @@ const checkUserRole = (user) => {
         return (<div>
             <Tasks user={user} />
         </div>)
+    } else if (user.role == 'hrmember') {
+        return(
+            <div>
+                <ListStaffRequests user={user}/>
+            </div>
+        )
     }
     return (<div></div>)
 }
@@ -114,8 +121,8 @@ const Dashboard = () => {
     const user = getUser();
     if (user) {
         return (
-            <div>
-                <h1>Welcome to your dashboard, {user.name}.</h1>
+            <div className="p-2">
+                <h5>Welcome to your dashboard, {user.name}.</h5>
                 {checkUserRole(user)}
             </div>
         )

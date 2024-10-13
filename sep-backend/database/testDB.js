@@ -69,6 +69,13 @@ const staff = [
         password: "diana123",
         role: "chef"
     },
+    {
+        id: 11,
+        name: "Simon",
+        email: "simon@sep.se",
+        password: "simon123",
+        role: "hrmember"
+    },
 ]
 
 const clients = [

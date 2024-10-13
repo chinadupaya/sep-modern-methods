@@ -1,7 +1,9 @@
 # sep-modern-methods
 
+npm install
+
 cd sep-backend
-npmstart
+npm start
 npm test
 
 cd sep-frontend
