@@ -174,4 +174,8 @@ testValues.putStaffRequest = {
     status: 'inprogress'
 }
 
+testValues.putStatus = {
+    status: 'inprogress',
+    department: 'production'
+}
 module.exports = testValues;

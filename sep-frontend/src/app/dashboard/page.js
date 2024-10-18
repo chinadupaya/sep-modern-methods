@@ -29,9 +29,12 @@ const checkUserRole = (user) => {
         return (
             <div>
                 <div className="row">
-                    <a className="btn btn-primary col-4 mx-1" href="/staffrequest">
-                        Request Additional Staff
-                    </a>
+                        <a className="btn btn-outline-primary mx-1" href="/staffrequest">
+                    Request Additional Staff
+                </a>
+                <a className="btn btn-outline-primary mx-1" href="/financialrequest">
+                    Request Additional Budget
+                </a>
                     <a className="btn btn-primary col-4 mx-1" href="/financialrequest">
                         Request Additional Budget
                     </a>
@@ -55,9 +58,12 @@ const checkUserRole = (user) => {
             <div>
                 <div className="row">
 
-                    <a className="btn btn-primary col-4 mx-1" href="/staffrequest">
-                        Request Additional Staff
-                    </a>
+                        <a className="btn btn-outline-primary mx-1" href="/staffrequest">
+                    Request Additional Staff
+                </a>
+                <a className="btn btn-outline-primary mx-1" href="/financialrequest">
+                    Request Additional Budget
+                </a>
                     <a className="btn btn-primary col-4 mx-1" href="/financialrequest">
                         Request Additional Budget
                     </a>
@@ -69,15 +75,12 @@ const checkUserRole = (user) => {
     } else if (user.role == 'financialmanager') {
         return (
             <div>
-                <div className="row">
-
-                    <a className="btn btn-primary col-4 mx-1" href="/staffrequest">
-                        Request Additional Staff
-                    </a>
-                    <a className="btn btn-primary col-4 mx-1" href="/financialrequest">
-                        Request Additional Budget
-                    </a>
-                </div>
+                <a className="btn btn-outline-primary mx-1" href="/staffrequest">
+                    Request Additional Staff
+                </a>
+                <a className="btn btn-outline-primary mx-1" href="/financialrequest">
+                    Request Additional Budget
+                </a>
                 <h2>Events</h2>
                 <Events user={user} />
                 <h2>Event Requests</h2>
@@ -89,9 +92,12 @@ const checkUserRole = (user) => {
             <div>
                 <div className="row">
 
-                    <a className="btn btn-primary col-4 mx-1" href="/staffrequest">
-                        Request Additional Staff
-                    </a>
+                        <a className="btn btn-outline-primary mx-1" href="/staffrequest">
+                    Request Additional Staff
+                </a>
+                <a className="btn btn-outline-primary mx-1" href="/financialrequest">
+                    Request Additional Budget
+                </a>
                     <a className="btn btn-primary col-4 mx-1" href="/financialrequest">
                         Request Additional Budget
                     </a>

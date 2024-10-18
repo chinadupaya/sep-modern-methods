@@ -120,12 +120,40 @@ const controller = {
         if (req.body.status == 'approved') {
             event.expectedBudget += financialRequest.addedBudget
         }
-        console.log("new events", events);
         return res.status(200).json({
             data: {
                 event: event
             }
         })
+    },
+    changeEventStatus: (req, res) => {
+        let eventId = req.params.eventId;
+        // find eventRequest
+        var event = _.find(events, (e) => e.id == eventId)
+        if (!event) {
+            return res.status(404).json({
+                error: {
+                    status:404,
+                    message: "Event not found"
+                }
+            });
+        }
+        let department = req.body.department ? req.body.department : null;
+        if (!department) {
+            return res.status(404).json({
+                error: {
+                    status:404,
+                    message: "Department not found"
+                }
+            });
+        }
+        event.status[department] = req.body.status;
+        return res.status(200).json({
+            data: {
+                event: event
+            }
+        });
+        
     }
 }
 

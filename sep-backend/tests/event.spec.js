@@ -18,6 +18,7 @@ describe('Test /events', () => {
     let sampleStub;
     let sampleEventVal;
     let putFinancialRequest;
+    let putStatus;
     let changeFinancialRequestStatus;
     beforeEach(() => {
         samepleEventVal = {
@@ -33,6 +34,7 @@ describe('Test /events', () => {
         postEvent = testVal.postEvent;
         putFinancialRequest = testVal.putFinancialRequest;
         changeFinancialRequestStatus = testVal.changeFinancialRequestStatus
+        putStatus = testVal.putStatus
         // sampleStub = sandbox.stub(_, 'find').resolves(sampleEventVal);
         // sampleStub = sandbox.stub(_, 'filter').resolves(eventRequests);
     });
@@ -78,8 +80,21 @@ describe('Test /events', () => {
                 .send(putFinancialRequest)
                 .expect(200)
                 .end(function(err, res) {
-                    console.log("statusFinancialRequest", res.body.data)
                     expect(res.body.data.event.financialRequests[0]).to.have.property('status')
+                    if (err) throw err;
+                    done()
+                });
+        })
+    });
+    describe('PUT /events/[eventId]/status]', () =>{
+        it('should respond with OK' , function (done) {
+            request(serverApp).put('/events/1/status')
+                .set('Content-Type', 'application/json')
+                .send(putStatus)
+                .expect(200)
+                .end(function(err, res) {
+                    console.log("eventStatus", res.body.data)
+                    expect(res.body.data.event.status.production).to.equal('inprogress')
                     if (err) throw err;
                     done()
                 });

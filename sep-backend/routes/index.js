@@ -29,6 +29,7 @@ router.get('/events',eventsController.getEvents);
 router.post('/events',eventsController.postEvent);
 router.put('/events/:eventId/financialrequests',eventsController.putEventFinancialRequest);
 router.put('/events/:eventId/financialrequests/:financialRequestId',eventsController.changeFinancialRequestStatus);
+router.put('/events/:eventId/status',eventsController.changeEventStatus);
 
 router.post('/tasks',tasksController.postTask);
 router.get('/tasks',tasksController.getTasks);
