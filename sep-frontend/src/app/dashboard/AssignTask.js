@@ -39,8 +39,9 @@ export default function AssignTask(props) {
 
     if(ready){
         return (
-            <div className="px-1">
-                <form className="p-3" action={createTaskWithStaffEvent}>
+            <div className="px-1 row">
+                <h2>Assign Tasks</h2>
+                <form className="p-3 col-md-8 col-12" action={createTaskWithStaffEvent}>
                     {events.length > 0 &&
                         <div className="form-group"> 
                         <label htmlFor="eventType">Event</label>       

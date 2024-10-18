@@ -7,24 +7,30 @@ let tasks = testDB.tasks;
 const controller = {
     getTasks: (req, res) => {
         var staffId = req.query.staffId;
-        console.log("staffId ", staffId)
-        if (staffId == '' || staffId == null || !staffId){
+        var role = req.query.role;
+        let filteredTasks = tasks;
+        if (!staffId && !role){
             return res.status(200).json({
                 data: {
                     tasks: tasks
                 }
             });
-        }else if (staffId){
-            let filteredTasks = _.filter(tasks, (x) => {
+        }
+        if (staffId){
+            filteredTasks = _.filter(filteredTasks, (x) => {
                 return x.assignedTo.id == staffId
             });
-            console.log("filteredTasks", filteredTasks)
-            return res.status(200).json({
-                data: {
-                    tasks: filteredTasks
-                }
+        }
+        if(role) {
+            filteredTasks = _.filter(filteredTasks, (x) => {
+                return x.assignedTo.role == role
             });
         }
+        return res.status(200).json({
+            data: {
+                tasks: filteredTasks
+            }
+        });
     },
     getTask: (req, res) => {
         var taskId = req.params.taskId;
