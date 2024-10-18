@@ -34,7 +34,6 @@ export default function Tasks(props) {
         fetch(fetchString)
           .then((res) => res.json())
           .then((res) => {
-            console.log("tasks", res.data)
             setTasks(res.data.tasks)
             setReady(true)
           })

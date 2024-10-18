@@ -7,6 +7,17 @@ let events = testDB.events;
 
 const controller = {
     getEvents: (req, res) => {
+        let search = req.query.search;
+        let filteredEvents = events;
+        if (search) {
+            var regex = new RegExp("^" + search);
+            filteredEvents = _.filter(events, x => regex.test(x.clientName))
+            return res.status(200).json({
+                data: {
+                    events: filteredEvents
+                }
+            });
+        }
         var status = req.query.status;
         if (status == '' || status == null || !status){
             return res.status(200).json({
@@ -15,7 +26,7 @@ const controller = {
                 }
             });
         }else if (status){
-            let filteredEvents = _.filter(events, (x) => {
+            filteredEvents = _.filter(events, (x) => {
                 return x.status == status
             });
             return res.status(200).json({

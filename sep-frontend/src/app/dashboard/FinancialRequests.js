@@ -13,7 +13,7 @@ export default function ListStaffRequests(props) {
     if (financialRequests.length > 0){
         return(
             <div className="container my-2">
-            <h1>Financial Requests</h1>
+            <h5>Financial Requests</h5>
             <div className="row">
                 {financialRequests.map((x) => {
                     return(

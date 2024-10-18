@@ -72,6 +72,9 @@ const checkUserRole = (user) => {
                 <a className="btn btn-primary mx-1" href="/financialrequest">
                     Request Additional Budget
                 </a>
+                <a className="btn btn-outline-secondary mx-1" href="/search-clients">
+                    Search Clients
+                </a>
                 <h2>Events</h2>
                 <Events user={user} />
                 <h2>Event Requests</h2>

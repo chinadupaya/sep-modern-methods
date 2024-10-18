@@ -83,14 +83,14 @@ const clients = [
         id: 1,
         name: "KTH",
         eventHistory: [
-            1, 2
+            1
         ]
     },
     {
         id: 2,
         name: "Jollibee",
         eventHistory: [
-            3
+            2
         ]
     },
 ]
@@ -100,8 +100,8 @@ const eventRequests = [];
 const events = [
     {
         id: 1,
-        clientId: "testId",
-        clientName: "test client",
+        clientId: 1,
+        clientName: "KTH",
         eventType: "test type",
         description: "Test Workshop",
         fromDate: new Date("2024-12-25"),
@@ -134,7 +134,35 @@ const events = [
                 status: "created"
             }
         ]
-
+    },
+    {
+        id: 2,
+        clientId: 2,
+        clientName: "Jollibee",
+        eventType: "buffet",
+        description: "Test Buffet",
+        fromDate: new Date("2024-12-25"),
+        toDate: new Date("2025-01-01"),
+        expectedAttendees: 50,
+        expectedBudget: 25000,
+        preferences: {
+            decorations: 'decorations 2',
+            photos: 'photos 2',
+            posters: 'art 2',
+            food: 'food/drink 2',
+            music: 'music 2',
+            computer: 'comp 2',
+        },
+        updatedBy: {
+            id: 2,
+            name: 'Janet',
+            role: 'test role',
+        },
+        status: {
+            services: 'created',
+            production: 'created',
+        },
+        financialRequests: []
     }
 ];
 
