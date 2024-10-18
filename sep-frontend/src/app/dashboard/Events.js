@@ -2,24 +2,7 @@
 import { useState, useEffect } from "react"
 import FinancialRequests from "./FinancialRequests";
 // import { putEventRequest } from "../actions/putEventRequest";
-
-const putEventRequest = async(status, user, eventRequestId) => {
-    const requestForm = {
-        status: status + '-' + user.role,
-        userName: user.name,
-        userId: user.id,
-        userRole: user.role
-    }
-    
-    const response = await fetch(`http://localhost:3000/events/${eventId}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestForm),
-    });
-    
-}
+import EventStatus from "./EventStatus";
 
 export default function Events(props) {
     const [events, setEvents] = useState([])
@@ -74,7 +57,8 @@ export default function Events(props) {
                         </ul>
                         <h5>Expected Attendees: {x.expectedAttendees}</h5>
                         <h5>Expected Budget: {x.expectedBudget} SEK</h5>
-                        <FinancialRequests financialRequests={x.financialRequests} eventId={x.id}/>
+                        <FinancialRequests user={user} financialRequests={x.financialRequests} eventId={x.id}/>
+                        <EventStatus status={x.status} user={user} eventId={x.id}/>
                     </div>
                     </div>
                     )

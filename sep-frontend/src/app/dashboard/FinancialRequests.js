@@ -25,8 +25,9 @@ export default function ListStaffRequests(props) {
                             <h6 className="card-subtitle mb-2 text-muted">Additional budget: {x.addedBudget}</h6>
                             <p>Reason: {x.reason}</p>
                             {
-                                x.status != 'approved' 
-                                && <ChangeFinancialRequestStatus eventId={eventId} financialRequest={x} />
+                                user.role=='financialmanager' &&
+                                x.status != 'approved' &&
+                                <ChangeFinancialRequestStatus eventId={eventId} financialRequest={x} />
                             }
                         </div>
                     </div>

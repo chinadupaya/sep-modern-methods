@@ -28,17 +28,12 @@ const checkUserRole = (user) => {
     } else if (user.role == 'seniorcsmanager') {
         return (
             <div>
-                <div className="row">
-                        <a className="btn btn-outline-primary mx-1" href="/staffrequest">
+                <a className="btn btn-outline-primary mx-1" href="/staffrequest">
                     Request Additional Staff
                 </a>
-                <a className="btn btn-outline-primary mx-1" href="/financialrequest">
+                <a className="btn btn-primary mx-1" href="/financialrequest">
                     Request Additional Budget
                 </a>
-                    <a className="btn btn-primary col-4 mx-1" href="/financialrequest">
-                        Request Additional Budget
-                    </a>
-                </div>
                 <div>
                     <h2>
                         Events
@@ -56,29 +51,25 @@ const checkUserRole = (user) => {
     } else if (user.role == 'adminmanager') {
         return (
             <div>
-                <div className="row">
-
-                        <a className="btn btn-outline-primary mx-1" href="/staffrequest">
+                <a className="btn btn-outline-primary mx-1" href="/staffrequest">
                     Request Additional Staff
                 </a>
-                <a className="btn btn-outline-primary mx-1" href="/financialrequest">
+                <a className="btn btn-primary mx-1" href="/financialrequest">
                     Request Additional Budget
                 </a>
-                    <a className="btn btn-primary col-4 mx-1" href="/financialrequest">
-                        Request Additional Budget
-                    </a>
+                <div>
+                    <h2>Event Requests</h2>
+                    <EventRequests user={user} />
                 </div>
-                <h2>Event Requests</h2>
-                <EventRequests user={user} />
             </div>
         )
     } else if (user.role == 'financialmanager') {
         return (
             <div>
-                <a className="btn btn-outline-primary mx-1" href="/staffrequest">
+               <a className="btn btn-outline-primary mx-1" href="/staffrequest">
                     Request Additional Staff
                 </a>
-                <a className="btn btn-outline-primary mx-1" href="/financialrequest">
+                <a className="btn btn-primary mx-1" href="/financialrequest">
                     Request Additional Budget
                 </a>
                 <h2>Events</h2>
@@ -90,18 +81,12 @@ const checkUserRole = (user) => {
     } else if (user.role == 'productionmanager' || user.role == 'servicesmanager') {
         return (
             <div>
-                <div className="row">
-
-                        <a className="btn btn-outline-primary mx-1" href="/staffrequest">
+                <a className="btn btn-outline-primary mx-1" href="/staffrequest">
                     Request Additional Staff
                 </a>
-                <a className="btn btn-outline-primary mx-1" href="/financialrequest">
+                <a className="btn btn-primary mx-1" href="/financialrequest">
                     Request Additional Budget
                 </a>
-                    <a className="btn btn-primary col-4 mx-1" href="/financialrequest">
-                        Request Additional Budget
-                    </a>
-                </div>
                 <h2>Events</h2>
                 <Events user={user} />
                 <h2>Assign Tasks</h2>
