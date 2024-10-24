@@ -1,7 +1,6 @@
 const shortid = require('shortid');
 const testDB = require('../database/testDB');
 var _ = require('lodash');
-const { changeFinancialRequestStatus } = require('../tests/testValues');
 
 let events = testDB.events;
 
