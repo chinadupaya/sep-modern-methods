@@ -15,8 +15,12 @@ export default function Home() {
   const user = (cookieStore.get('user'))
   return (
     <div>
-
-      
+      <h1>Welcome to Swedish Event Planners Home</h1>
+      {user &&
+        <div>
+          <p><a className="link-offset-3 link-underline-primary link-primary" href="/dashboard">Dashboard</a></p>
+        </div>
+      }
     </div>
   );
 }

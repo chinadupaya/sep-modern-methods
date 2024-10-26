@@ -34,5 +34,5 @@ export async function createTask(details, formData) {
         body: JSON.stringify(requestForm),
     });
     const result = await response.json();
-    redirect('/dashboard')
+    redirect('/')
 }

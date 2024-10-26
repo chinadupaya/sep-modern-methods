@@ -41,6 +41,7 @@ const checkUserRole = (user) => {
                     <a className="btn btn-primary" href="/create-event">
                         Create Event
                     </a>
+                    <Events user={user} />
                 </div>
                 <div>
                     <h2>Event Requests</h2>

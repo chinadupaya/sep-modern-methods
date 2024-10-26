@@ -12,6 +12,15 @@ function getDept(role) {
     return ''
 }
 
+function getUserRole(role) {
+    if (role=='productionmanager') {
+        return 'production'
+    } else if (role == 'servicesmanager') {
+        return 'services'
+    }
+    return ''
+}
+
 export default function EventStatus(props) {
     const user = props.user;
     const status = props.status;
@@ -26,6 +35,7 @@ export default function EventStatus(props) {
             Services: {status.services ? status.services : 'Unknown Status'} <br/> <br/>
             {
                 (user.role == 'productionmanager' || user.role == 'servicesmanager') && 
+                (status[getUserRole(user.role)] !== 'closed') &&
                 <div>
                     <h6>{getDept(user.role)}</h6>
                     <form className="p-3" action={changeEventStatusWithId}>

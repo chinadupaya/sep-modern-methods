@@ -28,10 +28,10 @@ export default function Events(props) {
                     return(
                     <div key={x.id} className="card col col-xl-6">
                     <div className="card-header">
-                        <h6 className="card-subtitle mb-2 text-muted">Event Details</h6>
+                        <h6 className="card-subtitle mb-2 text-muted">Event Type: {x.eventType}</h6>
                     </div>
                     <div className="card-body">
-                        <h5 className="card-title">Event Type: {x.eventType}</h5>
+                        <h5 className="card-title">Event Details</h5>
                         <h6 className="card-subtitle mb-2 text-muted">Client Id: {x.clientId}</h6>
                         <h6 className="card-subtitle mb-2 text-muted">Description: {x.description}</h6>
                         <h6>Preferences</h6>
